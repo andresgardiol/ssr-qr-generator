@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     await QRCode.toFileStream(qrStream, text,
         {
             type: 'png',
-            width: 200,
+            width: 500,
             errorCorrectionLevel: 'M'
         }
     );

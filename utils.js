@@ -62,7 +62,7 @@ export const setQueryParam = (key, value) => {
 
 
 export function useWindowSize(ssrWorking) {
-    let [size, setSize] = useState([0, 0]);
+    let [size, setSize] = useState([200, 200]);
     if (!ssrWorking) {
         useLayoutEffect(() => {
             function updateSize() {
