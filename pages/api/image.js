@@ -4,7 +4,7 @@ import {PassThrough} from 'stream';
 export default async function handler(req, res) {
     console.log(req.url);
     const urlParts = req.url.split('?');
-    let text = '';
+    let text = 'https://simple-qr-generator.vercel.app/';
     if (urlParts[1]) {
         let pair = urlParts[1].split("&");
 

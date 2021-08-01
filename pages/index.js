@@ -13,7 +13,7 @@ export default function App() {
 
     let ssr = typeof window === 'undefined';
     const query = useSSRQueryParams();
-    let imageText = query.text ? query.text : '';
+    let imageText = query.text ? encodeURIComponent(query.text) : '';
     let [text, setText] = useState(``);
     let [width] = useWindowSize(ssr);
     let queryParams = useQueryParams();
