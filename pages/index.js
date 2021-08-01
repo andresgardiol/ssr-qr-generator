@@ -9,6 +9,8 @@ import {setQueryParam, useQueryParams, useWindowSize} from "../utils";
 import Head from "next/head";
 import {useRouter} from 'next/router';
 
+const apiUrl = `https://simple-qr-generator.vercel.app/api/image`;
+
 export default function App() {
 
     let ssr = typeof window === 'undefined';
@@ -34,6 +36,7 @@ export default function App() {
         setText(text);
     }
 
+
     return (
         <div className="App">
             <Head>
@@ -44,9 +47,9 @@ export default function App() {
                 <meta property="twitter:title" content="QR Generator"/>
                 <meta property="twitter:description" content="Crea Códigos QR de manera simple"/>
                 <meta property="twitter:image"
-                      content={`https://ssr-qr-generator.vercel.app/api/image?text=${imageText}`}/>
+                      content={`${apiUrl}?text=${imageText}`}/>
 
-                <meta property="og:image" content={`https://ssr-qr-generator.vercel.app/api/image?text=${imageText}`}/>
+                <meta property="og:image" content={`${apiUrl}?text=${imageText}`}/>
                 <meta property="og:title" content="QR Generator"/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:url" content="https://simple-qr-generator.web.app/"/>
