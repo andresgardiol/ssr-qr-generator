@@ -16,6 +16,7 @@ export async function getServerSideProps() {
 export default function App(props) {
 
     const query = useSSRQueryParams();
+    let imageText = query.text ? query.text : '';
     let [text, setText] = useState(``);
     let [width] = useWindowSize(props.ssrWorking);
     let queryParams = useQueryParams();
@@ -46,9 +47,9 @@ export default function App(props) {
                 <meta property="twitter:title" content="QR Generator"/>
                 <meta property="twitter:description" content="Crea Códigos QR de manera simple"/>
                 <meta property="twitter:image"
-                      content={`https://ssr-qr-generator.vercel.app/api/image?text=${query.text}`}/>
+                      content={`https://ssr-qr-generator.vercel.app/api/image?text=${imageText}`}/>
 
-                <meta property="og:image" content={`https://ssr-qr-generator.vercel.app/api/image?text=${query.text}`}/>
+                <meta property="og:image" content={`https://ssr-qr-generator.vercel.app/api/image?text=${imageText}`}/>
                 <meta property="og:title" content="QR Generator"/>
                 <meta property="og:type" content="website"/>
                 <meta property="og:url" content="https://simple-qr-generator.web.app/"/>
