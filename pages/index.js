@@ -9,16 +9,13 @@ import {setQueryParam, useQueryParams, useWindowSize} from "../utils";
 import Head from "next/head";
 import {useRouter} from 'next/router';
 
-export async function getServerSideProps() {
-    return {props: {ssrWorking: true}};
-}
+export default function App() {
 
-export default function App(props) {
-
+    let ssr = typeof window === 'undefined';
     const query = useSSRQueryParams();
-    let imageText = query.text ? query.text : '';
+    let imageText = query.text ? encodeURIComponent(query.text) : '';
     let [text, setText] = useState(``);
-    let [width] = useWindowSize(props.ssrWorking);
+    let [width] = useWindowSize(ssr);
     let queryParams = useQueryParams();
 
     useEffect(() => {
@@ -82,5 +79,5 @@ function useSSRQueryParams() {
 function getSize(width) {
     if (!width) return 200;
     if (width > 500) return 500;
-    return width - 100;
+    return width - 80;
 }
