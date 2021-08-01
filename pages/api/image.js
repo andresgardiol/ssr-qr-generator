@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         let pair = urlParts[1].split("&");
 
         let keyValue = pair[0].split("=");
-        text = decodeURIComponent(keyValue[1]);
+        text = decodeURIComponent(keyValue[1]) ? decodeURIComponent(keyValue[1]) : text;
 
     }
     const qrStream = new PassThrough();
