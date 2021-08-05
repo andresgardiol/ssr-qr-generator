@@ -74,6 +74,10 @@ export default function App() {
     );
 }
 
+export async function getServerSideProps() {
+    return { props: {} }
+}
+
 function useSSRQueryParams() {
     const router = useRouter();
     return router.query;
