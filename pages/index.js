@@ -11,7 +11,7 @@ import {useRouter} from 'next/router';
 
 const apiUrl = `https://simple-qr-generator.vercel.app/api/image`;
 
-export default function App() {
+export default function App({ssrSearch}) {
 
     let ssr = typeof window === 'undefined';
     const query = useSSRQueryParams();
@@ -59,6 +59,7 @@ export default function App() {
                 <meta name="author" content="Andrés Gardiol"/>
                 <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet"/>
             </Head>
+            {/*<h1>{ssrSearch ? ssrSearch : null}</h1>*/}
             <QRCode className="qr" value={text} size={getSize(width)} level="M"/>
             <Editor className="editor"
                     value={text}
@@ -74,8 +75,10 @@ export default function App() {
     );
 }
 
-export async function getServerSideProps() {
-    return { props: {} }
+export async function getServerSideProps(context) {
+    console.log(context.req.url);
+    const url = new URL(context.req.url, `http://${context.req.headers.host}`)
+    return { props: {ssrSearch: url.search} }
 }
 
 function useSSRQueryParams() {

@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background-color: #424242;
+  background-color: #ffffff;
 }
 
 a {
@@ -23,4 +23,10 @@ a {
 .editor {
   color: white;
   background-color: #626262;
+  max-width: 60vw;
+  margin: 0 auto;
+}
+
+.qr {
+  margin: 40px;
 }
